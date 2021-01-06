@@ -1,0 +1,14 @@
+[Unit]
+Description=heos-remote
+After=network.target
+
+[Service]
+Type=simple
+
+User=pi
+WorkingDirectory=/home/pi
+ExecStart=/home/pi/.local/bin/heos-remote group --name Downstairs --device /dev/input/event0 --device /dev/input/event1
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
